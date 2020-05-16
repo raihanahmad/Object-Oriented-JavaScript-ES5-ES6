@@ -14,11 +14,11 @@ function Person(name, age, bd) {
   this.birthYearCalculator = function () {
     const diff = Date.now() - this.bd.getTime();
     const ageYear = new Date(diff);
-    return ageYear.getFullYear() - 1970;
-  }
+    return Math.abs(ageYear.getUTCFullYear() - 1970);
+  };
 }
 
-const raihan = new Person('Raihan Ahmad', 10, 'april 12, 2001');
-const tuhin = new Person('Tuhin Shek', 17, '12-2-2004');
+const raihan = new Person("Raihan Ahmad", 10, "april 12, 2001");
+const tuhin = new Person("Tuhin Shek", 17, "12-2-2004");
 
 console.log(raihan.birthYearCalculator());
